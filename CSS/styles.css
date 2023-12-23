@@ -1,13 +1,19 @@
 /* Custom property asosan css stillarda qo'llaniladi. sayt yoki loyihadag bir necha bor takrorlanadigan shiriftlar, ranglar va shunga o'xhsash bir nechamarotaba takrorlanadigan stillarni vaziyatga qarab o'zgartirishga to'g'ri keladi. Shunaqa vaziyatlarda  Custom propertydan foydalanib xar bir klass ichidagi stillarni bittalab o'zgartirmasdan bitta buyrug' orqali o'zgartirishimiz kerak bo'lgan stillarni o'zgartirishimiz mumkun. Custom propertyning eng sodda osuli root elementidan foydalanish*/
 /* root elementi eng tepada turadi */
 /* U quyidagicha ishlaydi */
-:root {
-  --brand-color: red;
+
   /* Ixtiyoriy nom berish mumkun */
   /* Bu berilgan nomni qaysi elementni rangini yoki orqa fon rangini o'zgartirmoqchi bo'lsan uning stili ichiga var() elementi orqali quyidagicha joylab olamiz */
   /* background-color: var(background-color); */
-}
+
 /* Custop bropertyni faqatgina ranglarda emas boshqa umumiy bo'lgan stillarda xam huddi shunday ishlatamiz */
+/* Custom proportyni birorbir elementning stili biror nuqtada boshqa stilga o'zgarishi kerak bo'lsa ham ishlatishimiz mumku. */
+/* Masalan: Hamma narsa outline stili bir xil berilgan bo'lib bitta yoki bir-nechta elementning  outline stili o'zgarishi kerak bo'lsa ushu nuqtaga kelganda uning stili uchun quyidagich root ichidagi element stilini o'zgartirib qo'yishimiz mumkun */
+:root {
+  --brand-color: red;
+  --outline-color: var(--brand-color)
+  /* --outline-color ichiga brand-color rangini o'zgaruvchi sifatida kiritib qo'ydik */
+}
 
 /* GLOBAL STYLES */
 html {
@@ -58,34 +64,12 @@ img {
   flex-direction: column;
 }
 
-
-.box-1 {
-  background-color: var(--brand-color);
+* :focus {
+  outline: 5px dashed var(--outline-color);
 }
-.box-2 {
+.content {
+  --outline-color: #fff;
   background-color: var(--brand-color);
-}
-.box-3 {
-  background-color: var(--brand-color);
-}
-.box-4 {
-  background-color: var(--brand-color);
-}
-.box-5 {
-  background-color: var(--brand-color);
-}
-.box-6 {
-  background-color: var(--brand-color);
-}
-.box-7 {
-  background-color: var(--brand-color);
-}
-.box-8 {
-  background-color: var(--brand-color);
-}
-.box-9 {
-  background-color: var(--brand-color);
-}
-.box-10 {
-  background-color: var(--brand-color);
+  padding: 5px;
+  /* Ya'ni bu clas uchun paragrifning orqa foni outlayn rangi bir xil bo'lib qoldi. bu xolatda paragraf ichidagi linkni outlayni ko'rinmay qoladi. Bu xolatda paragraf stilida :root ichidagi --brand color rangini 'ozgartirib qo'ydik */
 }
